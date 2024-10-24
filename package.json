@@ -1,0 +1,15 @@
+{
+  "name": "bap-musee-jouet-socket",
+  "lockfileVersion": 3,
+  "requires": true,
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon app.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.1",
+    "nodemon": "^3.1.7",
+    "socket.io": "^4.8.0"
+  }
+}
