@@ -12,7 +12,7 @@ const server = http.createServer(app);
 
 const io = new socketIO(server, {
   cors: {
-    origin: "http://localhost:5173",
+    origin: "*",
     methods: ["GET", "POST"],
     allowedHeaders: ["Content-Type"],
     credentials: true,
@@ -21,6 +21,11 @@ const io = new socketIO(server, {
 
 io.on("connection", (socket) => {
   console.log("A user connected");
+
+  socket.on("avatar", (avatarId)=>{
+    console.log("Receveid questionID:", avatarId);
+    io.emit("avatar", avatarId)
+  })
 
   socket.on("question", (questionId) => {
     console.log("Received question ID:", questionId);
