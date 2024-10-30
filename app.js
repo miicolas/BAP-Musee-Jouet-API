@@ -23,7 +23,7 @@ io.on("connection", (socket) => {
   console.log("A user connected");
 
   socket.on("avatar", (avatarId)=>{
-    console.log("Receveid questionID:", avatarId);
+    console.log("Receveid avatarID:", avatarId);
     io.emit("avatar", avatarId)
   })
 
