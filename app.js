@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import { Server as socketIO } from "socket.io";
 import http from "http";
+import router from "./router.js";
 
 const app = express();
 const PORT = 4000;
@@ -37,11 +38,7 @@ io.on("connection", (socket) => {
   });
 });
 
-app.get("/api", (req, res) => {
-  res.json({
-    message: "Hello world",
-  });
-});
+app.use("/api", router);
 
 server.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
