@@ -15,6 +15,7 @@ export const addLike = async (req, res) => {
     try {
 
         const { rating } = req.body;
+        console.log(rating, 'rating');
 
         const like = await prisma.like.create({
             data: {
@@ -22,8 +23,10 @@ export const addLike = async (req, res) => {
                 createdAt: new Date(),
             },
         });
+        console.log(like);
         res.status(201).json(like);
     } catch (error) {
+        console.log(error);
         res.status(500).json({ error: "Error adding like" });
     }
 }

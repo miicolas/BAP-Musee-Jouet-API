@@ -3,9 +3,13 @@ import cors from "cors";
 import { Server as socketIO } from "socket.io";
 import http from "http";
 import router from "./router.js";
+import bodyParser from "body-parser";
+
 
 const app = express();
 const PORT = 4000;
+
+app.use(bodyParser.json());
 
 app.use(cors());
 
