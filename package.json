@@ -4,7 +4,9 @@
   "requires": true,
   "type": "module",
   "scripts": {
-    "dev": "nodemon app.js"
+    "dev": "nodemon app.js",
+    "build": "prisma migrate && prisma generate",
+    "start": "node app.js"
   },
   "dependencies": {
     "@prisma/client": "^5.22.0",
