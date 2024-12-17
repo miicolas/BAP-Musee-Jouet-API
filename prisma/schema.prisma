@@ -9,12 +9,12 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
 model Like {
   id        Int      @id @default(autoincrement())
-  rating    Int     @default(0)
+  rating    Int      @default(0)
   createdAt DateTime
 }

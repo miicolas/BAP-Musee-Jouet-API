@@ -5,9 +5,8 @@ import http from "http";
 import router from "./router.js";
 import bodyParser from "body-parser";
 
-
 const app = express();
-const PORT = 4000;
+const PORT = process.env.PORT;
 
 app.use(bodyParser.json());
 
@@ -25,12 +24,10 @@ const io = new socketIO(server, {
 });
 
 io.on("connection", (socket) => {
-  console.log("A user connected");
-
-  socket.on("avatar", (avatarId)=>{
+  socket.on("avatar", (avatarId) => {
     console.log("Receveid avatarID:", avatarId);
-    io.emit("avatar", avatarId)
-  })
+    io.emit("avatar", avatarId);
+  });
 
   socket.on("question", (questionId) => {
     console.log("Received question ID:", questionId);
